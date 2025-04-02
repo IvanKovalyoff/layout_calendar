@@ -10,9 +10,9 @@ body {
 }
 
 .calendar {
-  margin: 0;
+  box-sizing: content-box;
   display: flex;
-  height: auto;
+  margin: 0;
   flex-wrap: wrap;
   gap: $gap;
   padding: $paddings;
@@ -33,13 +33,15 @@ body {
   &__day {
     display: block;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     height: $day-cell-size;
     width: $day-cell-size;
     background-color: #eee;
     border: 1px solid #000;
     font-family: Arial, serif;
     font-size: 30px;
-    transition: transform 500ms;
+    transition: transform 0.5s;
     color: #000;
     text-align: center;
     line-height: $day-cell-size;
@@ -47,6 +49,8 @@ body {
     @for $day from 1 through $days-amount {
       &:nth-child(#{$day})::before {
         content: '#{$day}';
+        margin: 0;
+        padding: 0;
       }
     }
   }
